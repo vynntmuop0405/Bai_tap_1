@@ -5,7 +5,7 @@ SELECT
   CASE 
     WHEN total_spent >= 1000000 THEN 'VIP'
     WHEN total_spent >= 500000 THEN 'Potential'
-    ELSE 'Regular'
+    ELSE 'Regular' dsdsdsdsd
   END AS customer_type
 FROM customers c
 JOIN orders o ON c.customer_id = o.customer_id
