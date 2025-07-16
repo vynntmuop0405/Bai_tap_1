@@ -17,7 +17,7 @@ product_quantity_accumulated AS (
 inventory_with_batch AS (
 	SELECT p.*,
 		   i.Current_Stock,
-		   CASE WHEN p.running_sum <= i.Current_Stock THEN i.Current_Stock
+		   CASE WHEN p.running_sum <= i.Current_Stock THEN p.batch_quantity
 		        WHEN p.running_sum - p.batch_quantity < i.Current_Stock THEN i.Current_Stock - (p.running_sum - p.batch_quantity)
 				ELSE 0
 				END AS quantity_left_batch
